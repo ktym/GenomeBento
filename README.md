@@ -14,7 +14,7 @@
 
 今回は、例として（すでにゲノムが決まっていますが）山口の食材として有名な「トラフグ」を検索してみます。右上のインフォボックスの中から学名を見つけます。
 
-![トラフグ - Wikipedig](mages/Wikipedia-Trafugu.png)
+![トラフグ - Wikipedia](images/Wikipedia-Trafugu.png)
 
 トラフグの学名は Takifugu rubripes であることが分かりました。
 
