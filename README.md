@@ -44,3 +44,4 @@
 
 * [ゲノムへのリードマッピング](Analysis_genome.md)
 * [rbcLのメタ植物ゲノム解析](Analysis_rbcL.md)
+* [IGVでマッピング結果を見てみる](IGV.md)
