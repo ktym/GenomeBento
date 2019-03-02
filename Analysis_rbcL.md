@@ -8,7 +8,7 @@
 
 - rbcLライブラリに、リードをマッピング
 ```
-bwa bwasw ~/Desktop/GenomeBento/databases/rbcL/rbcL_all ~/Desktop/Minion/(1_hakusai)/2019*/FAH64471_43586857e208cde4192344268331332d0af3dbf0*.fastq 
+bwa bwasw ~/Desktop/GenomeBento/databases/rbcL/rbcL_all ~/Desktop/MinION/(1_hakusai)/2019*/FAH64471_43586857e208cde4192344268331332d0af3dbf0*.fastq  > rbcL_(hakusai).sam
 ```
 - マッピング結果を見てみる（各リードがどのrbcLに張り付いたのかを確認）
 ```
