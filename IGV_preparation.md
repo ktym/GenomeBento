@@ -14,4 +14,4 @@ OKを押して`.genome`ファイルの保存先を指定します。
 
 ![IGV](images/IGV-create-genome-save.png)
 
-ここでは元のFASTAファイル`3711-hakusai.fasta`があったのと同じ`genomes`ディレクトリ内に、`3711-hakusai.genome`という名前で保存しています。今回は、このようにして他のリファレンス配列についても`.genome`ファイルを事前に用意してあります。
+ここでは元のFASTAファイル`3711-hakusai.fasta`があったのと同じ`GenomeBento/databases/genomes`ディレクトリ内に、`3711-hakusai.genome`という名前で保存しています。今回は、このようにして他のリファレンス配列についても`.genome`ファイルを事前に用意してあります。
