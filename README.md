@@ -2,7 +2,11 @@
 
 ## ゲノム弁当解読プロジェクト
 
-[イントロダクション](Introduction.md)
+[イントロダクション](Introduction.md) ([PDF](slides/Introduction.pdf))
+
+参考資料
+* [クマムシゲノム解読の話](slides/Kumamushi.pdf)
+* [ゲノム医科学への応用の話]()
 
 ## 今回準備して頂いたゲノム弁当のサンプル
 
