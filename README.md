@@ -2,7 +2,7 @@
 
 ## ゲノム弁当解読プロジェクト
 
-[イントロダクション](Introduction)
+[イントロダクション](Introduction.md)
 
 ## 今回準備して頂いたゲノム弁当のサンプル
 
@@ -38,9 +38,9 @@
 ## ゲノム弁当の食材を充実させよう
 
 「この食材のゲノムはまだ決まっていないのかな？」と思ったら、
-[食材の追加方法](AdditionalGenomeBento)を見て探してみましょう。
+[食材の追加方法](AdditionalGenomeBento.md)を見て探してみましょう。
 
 ## MINIONで読んだDNA配列を見てみよう
 
-* [ゲノムへのリードマッピング](Analysis_genome)
-* [rbcLのメタ植物ゲノム解析](Analysis_rbcL)
+* [ゲノムへのリードマッピング](Analysis_genome.md)
+* [rbcLのメタ植物ゲノム解析](Analysis_rbcL.md)
