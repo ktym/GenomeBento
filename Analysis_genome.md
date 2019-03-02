@@ -236,9 +236,9 @@ Commandを`Index`に変更して、この`hakusai.sorted.sam`ファイルに高�
 
 ![SAM](images/IGV-sorted-sam.png)
 
-## BAMファイルの作成
+## BAMファイルの作成とマップ率の確認
 
-BAMファイルはSAMファイルをバイナリにして、省スペース家および高速化をはかるためのフォーマットです。SAMファイルをBAMファイルに変換するには[samtools](http://samtools.sourceforge.net/)を使います。`samtools`を使うと、リードのマッピング率なども調べることができます。
+BAMファイルはSAMファイルをバイナリにして、省スペース化および高速化をはかるためのフォーマットです。SAMファイルをBAMファイルに変換するには[samtools](http://samtools.sourceforge.net/)を使います。`samtools`を使うと、リードのマッピング率なども調べることができます。
 
 ### BAM形式に変換
 
