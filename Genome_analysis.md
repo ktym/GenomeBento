@@ -2,9 +2,9 @@
 
 ## BWAを用いてリードを参照配列にマッピング
 
-[BWA](http://bio-bwa.sourceforge.net/)は、Burrows-Wheeler Transformation アルゴリズムを用いた高速な配列マッピングを実現しています。Illuminaシーケンサーのショートリードについては様々なマッピングツールがありますが、比較するとMinIONなどのロングリードに対応したツールはまだ少なめです。
+[BWA](http://bio-bwa.sourceforge.net/)は、Burrows-Wheeler Transformation アルゴリズムを用いた高速な配列マッピングを実現しています。Illuminaシーケンサーのショートリードについては様々なマッピングツールがありますが、MinIONなどのロングリードに対応したツールはまだ少なめです。
 
-`bwa`コマンドは広く使われており十分に高速なのですが、他にも産総研の[LAST](http://last.cbrc.jp/)もロングリードに対応しているほか、東大で開発されている[minialign](https://github.com/ocxtal/minialign)はより高速で正確と謳われており、国内のバイオインフォマティクス研究者の活躍にも期待したいところです。
+`bwa`コマンドはよく使われており十分に高速なのですが、他にも産総研の[LAST](http://last.cbrc.jp/)もロングリードに対応しているほか、東大で開発されている[minialign](https://github.com/ocxtal/minialign)はより高速で正確と謳われており、国内のバイオインフォマティクス研究者の活躍にも期待したいところです。
 
 ### BWAコマンドの使い方
 
@@ -14,7 +14,7 @@
 bwa bwasw リファレンス配列名 入力FASTQファイル > 出力SAMファイル
 ```
 
-マッピング対象とするリファレンス配列は、あらかじめ準備しておく必要があります。今回は、デスクトップの、GenomeBentoの中のdatabasesフォルダ以下に置いてあります。
+マッピング対象とするリファレンス配列は、あらかじめ準備しておく必要があります。今回は、デスクトップの、`GenomeBento`の中の`databases`フォルダ以下に置いてあります。
 
 ```
 GenomeBento/databases
@@ -38,7 +38,7 @@ GenomeBento/databases
 
 ## リファレンス配列へのマッピング
 
-今回のゲノム弁当からMinIONで読んだDNA配列データは、デスクトップのMinIONフォルダ以下に置いてあります。`fast5`とは[HDF5](https://www.hdfgroup.org/downloads/hdf5/)という複雑かつ大規模なデータを格納できるファイル形式を用いた、MinIONシーケンサーの出力する生データになります。
+今回のゲノム弁当からMinIONで読んだDNA配列データは、デスクトップの`MinION`フォルダ以下に置いてあります。`fast5`とは[HDF5](https://www.hdfgroup.org/downloads/hdf5/)という複雑かつ大規模なデータを格納できるファイル形式を用いた、MinIONシーケンサーの出力する生データになります。
 
 このままでは取り扱いが難しいため、DNA配列と配列のクオリティを4行ずつに束ねた`FASTQ`形式に変換されたものを利用します。以前は[poretools](https://poretools.readthedocs.io/)を使って自分で変換する必要がありましたが、今のMinIONについてくるMinKNOWソフトウェアは自動でFASTQファイルを生成してくれるようになっています。このうち、`fast5_fail`と`fastq_fail`は何らかの理由で解読に失敗したデータなので割愛します。また前述のように`fast5_pass`もHDF5形式のバイナリデータのため今回は割愛します。`sequencing_summary`にはシーケンシングの実行ログが記録されています。
 
@@ -97,7 +97,7 @@ cd ~/Desktop
 bwa bwasw GenomeBento/databases/genomes/hakusai MinION/1_hakusai/20190301*/fastq_pass/*.fastq > hakusai.sam
 ```
 
-なお、`bwa`コマンドが見つからない場合、パスが通ったところにインストールされていない可能性があります。今回はGenomeBentoフォルダの中にも`bwa`コマンドを入れてありますので、`./GenomeBento/bwa`のように書き換えると実行できるはずです。
+なお、`bwa`コマンドが見つからない場合、パスが通ったところにインストールされていない可能性があります。今回は`GenomeBento`フォルダの中にも`bwa`コマンドを入れてありますので、`./GenomeBento/bwa`のように書き換えると実行できるはずです。
 
 ```sh
 cd ~/Desktop
@@ -163,7 +163,7 @@ Commandを`Sort`に変更して、Input Fileの`Browse`ボタンをクリック�
 
 ![igvtools](images/IGV-igvtools-load.png)
 
-Runボタンでソートを実行すると`hakusai.sorted.sam`のように名前に`.sorted`がついたSAMファイルができます。Doneと表示されれば完了です（わりと一瞬で終わるかと思います）。
+`Run`ボタンでソートを実行すると`hakusai.sorted.sam`のように名前に`.sorted`がついたSAMファイルができます。Doneと表示されれば完了です（わりと一瞬で終わるかと思います）。
 
 ![igvtools](images/IGV-igvtools-sort.png)
 
@@ -185,7 +185,7 @@ Commandを`Index`に変更して、この`hakusai.sorted.sam`ファイルに高�
 
 ![IGV](images/IGV-result.png)
 
-リードの数が少ない場合、マップされた領域を探すのがちょっと大変ですが、SAMファイルの中を見ると配列ごとにマッピングされた座標が分かるのでヒントになります。
+リードの数が少ない場合、マップされた領域を探すのがちょっと大変ですが、SAMファイルの中を見ると配列ごとにマッピングされた座標が分かるのでヒントになります。このことから、ゲノムを完全に読むには大量にシーケンスする必要があることが分かると思います。
 
 ![SAM](images/IGV-sorted-sam.png)
 
