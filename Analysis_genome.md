@@ -119,17 +119,30 @@ MinION
 
 #### 白菜の場合
 
+ターミナルを起動し、デスクトップフォルダ`~/Desktop`（今回シーケンスに使ったMacの場合`/Users/ycam/Desktop`に相当します）に移動して、`bwa`コマンドを実行します。リファレンス配列は`GenomeBento/databases/genomes`フォルダに用意した`hakusai`を、マッピングするファイルは`MinION/1_hakusai`のフォルダの中の`fastq_pass`にある全てのFASTQファイル`*.fastq`を指定しています。
+
 ```sh
 cd ~/Desktop
 bwa bwasw GenomeBento/databases/genomes/hakusai MinION/1_hakusai/20190301*/fastq_pass/*.fastq > hakusai.sam
 ```
 
+なお、`bwa`コマンドが見つからない場合、パスが通ったところにインストールされていない可能性があります。今回はGenomeBentoフォルダの中にも`bwa`コマンドを入れてありますので、`./GenomeBento/bwa`のように書き換えると実行できるはずです。
+
+```sh
+cd ~/Desktop
+./GenomeBento/bwa bwasw GenomeBento/databases/genomes/hakusai MinION/1_hakusai/20190301*/fastq_pass/*.fastq > hakusai.sam
+```
+
 #### ヒヨコ豆の場合
+
+ヒヨコ豆のデータを使う場合はデータベース名を`chickpea`に変更し、FASTQファイルは`MinION/5_hiyokomame`以下にあるものを使います。
 
 ```sh
 cd ~/Desktop
 bwa bwasw GenomeBento/databases/genomes/chickpea MinION/5_hiyokomame/20190301*/fastq_pass/*.fastq > chickpea.sam
 ```
+
+ヒヨコ豆の場合、以下の説明では`hakusai`を`chickpea`に読み替えてください。
 
 ### SAMファイルの構造
 
@@ -141,23 +154,45 @@ bwa bwasw GenomeBento/databases/genomes/chickpea MinION/5_hiyokomame/20190301*/f
 
 ### IGVを起動 (Dockのアイコンをクリック)
 
-![IGV](images/10.04.51.png)
+![IGV](images/IGV-icon.png)
+
+はじめて起動した場合、ヒトゲノムのバージョンhg19が選ばれた状態になっています。
+
+![IGV](images/IGV-initial.png)
 
 ### リファレンスゲノム配列を読み込む
 
-IGVの 「Genomes」 から 「Load Genome from File...」 を選択
+他の生物種のゲノムに切り替えるためには、IGVのGenomesメニューから「Load Genome from File...」を選択します。
 
-![Load Genome](images/10.07.22.png)
+![IGV](images/IGV-load-genome.png)
 
-### 各グループで読んだ対象の食材のファイルを選択して「Open」をクリック！
+白菜だったら`3711-hakusai.genome`など、各グループで読んだ対象の食材の`.genome`ファイルを選択してOpenをクリックします。
 
-ハクサイだったら`3711-hakusai.genome`
+![Genome file](images/IGV-load-genome-file.png)
 
-![Genome file](images/10.25.43.png)
+読み込めたらこのようにメニューから白菜の各染色体に相当するDNA配列がメニューに出てきます。
 
-### 読み込めたらこんな感じに
+![Loaded Genome](images/IGV-genome-hakusai.png)
 
-![Loaded Genome](images/10.31.15.png)
+#### .genomeファイルの作成
+
+（ここは読み飛ばして構いません）
+
+上記で読み込んだ`hakusai.genome`のような`.genome`ファイルは、用意したゲノム配列のFASTAファイル`3711-hakusai.fasta`などからIGVを使って作ることができます。
+
+このためにはGenomesメニューから「Create .genome File...」を選びます。
+
+![IGV](images/IGV-create-genome.png)
+
+つぎに、「FASTA file」に`3711-hakusai.fasta`などのFASTAファイルを指定し、「Unique identifier」に個別のID（ここでは白菜のタクソノミーIDである3711を流用しました）および「Descriptive name」に名前をつけます（この名前がIGVのメニューに表示されます）。
+
+![IGV](images/IGV-create-genome-fasta.png)
+
+OKを押して`.genome`ファイルの保存先を指定します。
+
+![IGV](images/IGV-create-genome-save.png)
+
+ここでは元のFASTAファイル`3711-hakusai.fasta`があったのと同じ`genomes`ディレクトリ内に、`3711-hakusai.genome`という名前で保存しています。今回は、このようにして他のリファレンス配列についても`.genome`ファイルを事前に用意してあります。
 
 ### SAMファイルのソートとインデックス作成
 
@@ -167,38 +202,39 @@ IGVの 「Genomes」 から 「Load Genome from File...」 を選択
 
 Toolsメニューから「Run igvtools...」を選んで`igvtools`を起動します。
 
-![igvtools](images/igv/IGV-3.png)
+![igvtools](images/IGV-igvtools.png)
 
 #### igvtoolsでのソート
 
-Commandを`Sort`に変更して、Input Fileに`Browse`から作成した`hakusai.sam`または`chickpea.sam`を選択します。
+Commandを`Sort`に変更して、Input Fileの`Browse`ボタンをクリックして、作成した`hakusai.sam`を選択します。
 
-![igvtools](images/igv/IGV-4.png)
+![igvtools](images/IGV-igvtools-load.png)
 
-Runでソートを実行すると`hakusai.sorted.sam`のように名前に`.sorted`がついたSAMファイルができます。
+Runボタンでソートを実行すると`hakusai.sorted.sam`のように名前に`.sorted`がついたSAMファイルができます。Doneと表示されれば完了です（わりと一瞬で終わるかと思います）。
+
+![igvtools](images/IGV-igvtools-sort.png)
 
 #### igvtoolsでのインデックス作成
 
-Commandを`Index`に変更して、この`.sorted.sam`ファイルに高速化のためのインデックスを作成します。
+Commandを`Index`に変更して、この`hakusai.sorted.sam`ファイルに高速化のためのインデックスを作成します（`Sort`から`Index`に変更しただけだと`hakusai.sorted.sam`ではなく元の`hakusai.sam`ファイルが選ばれている可能性があるので注意）。
 
-![igvtools](images/igv/IGV-5.png)
+![igvtools](images/IGV-igvtools-index.png)
 
 結果、元の`hakusai.sam`ファイルに対して、ソートされた`hakusai.sorted.sam`ファイルと、インデックスファイル`hakusai.sorted.sam.sai`ができます。
 
 ### マッピングの結果を読み込む
 
-「Load from File...」から、作成した`.sorted.sam`ファイルを選択します。
+「Load from File...」から、作成した`hakusai.sorted.sam`ファイルを選択します。
 
-![Load SAM file](images/10.48.07.png)
+![IGV](images/IGV-load-sam.png)
 
 あとはズームしていくと、マッピングされたリードが出てきます。
 
-![IGV](images/igv/IGV-10.png)
+![IGV](images/IGV-result.png)
 
+リードの数が少ない場合、マップされた領域を探すのがちょっと大変ですが、SAMファイルの中を見ると配列ごとにマッピングされた座標が分かるのでヒントになります。
 
-リードの数が少ない場合、マップされた領域を探すのがちょっと大変ですが、SAMファイルの中を見ると配列のIDと座標が分かるのでヒントになります。
-
-![SAM](images/igv/IGV-9.png)
+![SAM](images/IGV-sorted-sam.png)
 
 ## BAMファイルの作成
 
@@ -210,19 +246,38 @@ BAMファイルはSAMファイルをバイナリにして、省スペース家�
 samtools view -bS hakusai.sam > hakusai.bam
 ```
 
-## 染色体位置でソートする
+### 染色体上の座標でソートする
 
 ```sh
 samtools sort hakusai.bam hakusai.sorted
 ```
-## Indexを作成
+### インデックスを作成
 
 ```sh
 samtools index hakusai.sorted.bam
 ```
 
-## マッピングの状況を見てみる
+### マッピングの状況を見てみる
 
 ```sh
 samtools flagstat hakusai.sorted.bam
 ```
+
+今回の白菜の例では下記のような結果になりました。
+
+```
+% samtools flagstat hakusai.sorted.bam
+9051 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 duplicates
+6067 + 0 mapped (67.03%:nan%)
+6067 + 0 paired in sequencing
+2999 + 0 read1
+3068 + 0 read2
+0 + 0 properly paired (0.00%:nan%)
+3844 + 0 with itself and mate mapped
+2223 + 0 singletons (36.64%:nan%)
+3422 + 0 with mate mapped to a different chr
+2349 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+
+67%のリードがマッピングされたということで、なかなか良かったのではないでしょうか。
