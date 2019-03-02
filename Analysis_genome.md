@@ -2,13 +2,13 @@
 
 ## BWAを用いてリードを参照配列にマッピング
 
-[BWA](http://bio-bwa.sourceforge.net/)は、Burrows-Wheeler Transformation アルゴリズムを用いた高速な配列マッピングを実現しています。Illuminaシーケンサーのショートリードについては様々なマッピングツールがありますが、比較するとMINIONなどのロングリードに対応したツールはまだ少なめです。
+[BWA](http://bio-bwa.sourceforge.net/)は、Burrows-Wheeler Transformation アルゴリズムを用いた高速な配列マッピングを実現しています。Illuminaシーケンサーのショートリードについては様々なマッピングツールがありますが、比較するとMinIONなどのロングリードに対応したツールはまだ少なめです。
 
 `bwa`コマンドは広く使われており十分に高速なのですが、他にも産総研の[LAST](http://last.cbrc.jp/)もロングリードに対応しているほか、東大で開発されている[minialign](https://github.com/ocxtal/minialign)はより高速で正確と謳われており、国内のバイオインフォマティクス研究者の活躍にも期待したいところです。
 
 ### BWAコマンドの使い方
 
-`bwa`でMINIONのロングリードをマッピングするには、サブコマンド`bwasw`を利用します。コマンドラインオプションは下記のようになります。
+`bwa`でMinIONのロングリードをマッピングするには、サブコマンド`bwasw`を利用します。コマンドラインオプションは下記のようになります。
 
 ```sh
 bwa bwasw リファレンス配列名 入力FASTQファイル > 出力SAMファイル
