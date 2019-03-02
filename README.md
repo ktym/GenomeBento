@@ -48,12 +48,12 @@
 
 ## MinIONで読んだDNA配列を見てみよう
 
-* [ゲノムへのリードマッピング](Analysis_genome.md)
+* [ゲノムへのリードマッピング](Genome_analysis.md)
+  * [リファレンス配列の準備](Genome_preparation.md)
+  * [IGV用.genomeファイルの準備](IGV_preparation.md)
 * [rbcLのメタ植物ゲノム解析](Analysis_rbcL.md)
 * [IGVでマッピング結果を見てみる](igv.md)
 
 ## 参考文献
 
 * [よくわかるバイオインフォマティクス入門](https://www.amazon.co.jp/dp/4065138213/)
-
-
