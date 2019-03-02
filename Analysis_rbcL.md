@@ -13,6 +13,6 @@ bwa bwasw ~/Desktop/GenomeBento/databases/rbcL/rbcL_all ~/Desktop/MinION/3_tsuke
 - マッピング結果を見てみる（各リードがどのrbcLに張り付いたのかを確認）
 ```
 ~/Desktop/GenomeBento/check.sh tsukemono.sam | less
-~/Desktop/GenomeBento/check.sh tsukemono.sam | grep YCAMGB_
+~/Desktop/GenomeBento/check.sh tsukemono.sam | grep YCAM
 ```
 
