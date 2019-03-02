@@ -2,6 +2,8 @@
 # (解読)
 # プロジェクト
 
+![bg](images/YCAM-GenomeBento-2018.jpg)
+
 ---
 
 ## の前にちょっと自己紹介
@@ -26,22 +28,22 @@
 
 プロダクト
 
-* BioRuby
-* TogoWS
-* TogoDB
-* TogoGenome
-  * TogoStanza, SPARQL-proxy, SPARQList
-* TogoVar:日本人の全ゲノム変異を統合したデータベース
+* [BioRuby](http://bioruby.org)
+* [TogoWS](http://togows.org)
+* [TogoDB](http://togodb.org)
+* [TogoGenome](http://togogenome.org)
+  * [TogoStanza](http://togostanza.org), [SPARQL-proxy](https://github.com/dbcls/sparql-proxy), [SPARQList](https://github.com/dbcls/sparqlist)
+* [TogoVar](https://togovar.biosciencedbc.jp):日本人の全ゲノム変異を統合したデータベース
 
 ---
 
 # 片山俊明
 
-* オープンバイオ研究会
-* ゲノムグラフ研究会
-* クマムシゲノムプロジェクト
-* BioHackathon
-* SPARQLthon
+* [オープンバイオ研究会](http://open-bio.jp)
+* [ゲノムグラフ研究会](http://genomegraph.jp/)
+* [クマムシゲノムプロジェクト](http://kumamushi.org/)
+* [BioHackathon](http://biohackathon.org/)
+* [SPARQLthon](http://wiki.lifesciencedb.jp/mw/SPARQLthon)
 *  :
 
 ---
@@ -52,7 +54,7 @@
 
 バイオインフォマティシャン
 
-MGeND:日本人のゲノム変異に関係する医科学データベース構築
+[MGeND](https://mgend.med.kyoto-u.ac.jp/):日本人のゲノム変異に関係する医科学データベース構築
 
 最近、ポテサラをコレクションしている
 
@@ -62,7 +64,7 @@ MGeND:日本人のゲノム変異に関係する医科学データベース構�
 
 東北大学東北メディカル・メガバンク機構医療情報ICT部門 教授
 
-dbTMM:日本人ゲノムとコホート研究によるデータベースの構築
+[dbTMM](http://www.dist.megabank.tohoku.ac.jp/about/data/):日本人ゲノムとコホート研究によるデータベースの構築
 
 バイオバンク連携
 
@@ -131,7 +133,12 @@ dbTMM:日本人ゲノムとコホート研究によるデータベースの構�
 
 ---
 
-TODO:写真
+![](images/YCAM-GenomeBento-2016-1.jpg)
+![](images/YCAM-GenomeBento-2016-2.jpg)
+
+---
+
+![](images/YCAM-GenomeBento-2016-3.jpg)
 
 ---
 
