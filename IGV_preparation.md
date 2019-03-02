@@ -10,7 +10,7 @@
 
 ![IGV](images/IGV-create-genome-fasta.png)
 
-OKを押して`.genome`ファイルの保存先を指定します。
+`OK`を押して`.genome`ファイルの保存先を指定します。
 
 ![IGV](images/IGV-create-genome-save.png)
 
