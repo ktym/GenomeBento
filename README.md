@@ -1,5 +1,11 @@
 # YCAM InterLab Camp vol.3
 
+![](https://dbarchive.biosciencedbc.jp/data/togo-pic/image/201306_genome_bento.png)
+
+2019年3月2日、[YCAM InterLab Camp vol.3](https://www.ycam.jp/events/2019/ycam-interlab-camp-vol3/) では、ゲノム弁当を素材として、その食材に含まれる DNA を [MinION](https://nanoporetech.com/products/minion) シーケンサーで解読し、データベースを使って解読した DNA 配列がどの生物由来のものか検索する実習を行いました。
+
+詳しいレポートが [Make:](https://makezine.jp/blog/2019/03/ycaminterlabcamp3_part1.html) に掲載されているのでぜひご参照ください。
+
 ## ゲノム弁当解読プロジェクト
 
 [イントロダクション](Introduction.md) ([PDF](slides/Introduction.pdf))
@@ -39,20 +45,22 @@
 * キヌア
 * **ひよこ豆**
 
-うち、**太字**はMinIONでのシーケンスにつかったもの。
+うち、**太字** は `MinION` でのシーケンスにつかったもの。
 
 ## ゲノム弁当の食材を充実させよう
 
 「この食材のゲノムはまだ決まっていないのかな？」と思ったら、
 [食材の追加方法](AdditionalGenomeBento.md)を見て探してみましょう。
 
-## MinIONで読んだDNA配列を見てみよう
+## MinION で読んだ DNA 配列を見てみよう
 
-* [ゲノムへのリードマッピング](Genome_analysis.md)
-  * [リファレンス配列の準備](Genome_preparation.md)
-  * [IGV用.genomeファイルの準備](IGV_preparation.md)
-* [rbcLのメタ植物ゲノム解析](Analysis_rbcL.md)
-* [IGVでマッピング結果を見てみる](igv.md)
+* [MinION で得られた DNA 配列の確認](Sequence_data.md)
+* [リファレンス配列の準備](Genome_preparation.md)
+* [リードマッピングの準備](Installation.md)
+* [rbcL のメタ植物ゲノム解析](Metagenome_analysis.md)
+* [リファレンス配列へのマッピング](Genome_analysis.md)
+* [IGV でマッピング結果を見てみる](igv.md)
+* [samtools によるマップ率の確認](samtools.md)
 
 ## 参考文献
 
