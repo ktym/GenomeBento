@@ -16,6 +16,15 @@
 * [クマムシゲノム解読の話](slides/Kumamushi.pdf)
 * ゲノム医科学への応用の話 (to be uploaded)
 
+## MinION で読んだ DNA 配列を見てみよう
+
+* [MinION で得られた DNA 配列の確認](Sequence_data.md)
+* [リファレンス配列の準備](Genome_preparation.md)
+* [リードマッピングの準備](Installation.md)
+* [rbcL のメタ植物ゲノム解析](Metagenome_analysis.md)
+* [リファレンス配列へのマッピング](Genome_analysis.md)
+* [おまけの解析](Homework.md)
+
 ## 今回準備して頂いたゲノム弁当のサンプル
 
 料理（9種類）
@@ -53,15 +62,6 @@
 
 「この食材のゲノムはまだ決まっていないのかな？」と思ったら、
 [食材の追加方法](AdditionalGenomeBento.md)を見て探してみましょう。
-
-## MinION で読んだ DNA 配列を見てみよう
-
-* [MinION で得られた DNA 配列の確認](Sequence_data.md)
-* [リファレンス配列の準備](Genome_preparation.md)
-* [リードマッピングの準備](Installation.md)
-* [rbcL のメタ植物ゲノム解析](Metagenome_analysis.md)
-* [リファレンス配列へのマッピング](Genome_analysis.md)
-* [おまけの解析](Homework.md)
 
 ## 参考文献
 
