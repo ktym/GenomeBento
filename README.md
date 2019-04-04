@@ -1,6 +1,7 @@
 # YCAM InterLab Camp vol.3
 
-![](https://dbarchive.biosciencedbc.jp/data/togo-pic/image/201306_genome_bento.png)
+![Genome Bento](image/201306_genome_bento.png)
+（画像は https://togotv.dbcls.jp/togopic.2013.18.html より）
 
 2019年3月2日、[YCAM InterLab Camp vol.3](https://www.ycam.jp/events/2019/ycam-interlab-camp-vol3/) では、ゲノム弁当を素材として、その食材に含まれる DNA を [MinION](https://nanoporetech.com/products/minion) シーケンサーで解読し、データベースを使って解読した DNA 配列がどの生物由来のものか検索する実習を行いました。
 
@@ -59,8 +60,7 @@
 * [リードマッピングの準備](Installation.md)
 * [rbcL のメタ植物ゲノム解析](Metagenome_analysis.md)
 * [リファレンス配列へのマッピング](Genome_analysis.md)
-* [IGV でマッピング結果を見てみる](igv.md)
-* [samtools によるマップ率の確認](samtools.md)
+* [おまけの解析](Homework.md)
 
 ## 参考文献
 
