@@ -141,7 +141,7 @@ cat ~/Desktop/MinION/4_takikomigohan/2019*/fastq_pass/*.fastq > ~/Desktop/Genome
 cat ~/Desktop/MinION/5_hiyokomame/2019*/fastq_pass/*.fastq    > ~/Desktop/GenomeBento/samples/5_hiyokomame.fastq
 cat ~/Desktop/MinION/6_tomato/2019*/fastq_pass/*.fastq        > ~/Desktop/GenomeBento/samples/6_tomato.fastq
 ```
-なお、ディレクトリ名やファイル名に `*` を含めると、そこにある全てのファイルにマッチするので、長い名前を省略したり、同じ名前で始まるファイルをまとめて指定することができます。また途中まで入力して Tab キー（Mac だと `->|` キー）を押すと、長いファイル名も自動的に補完されるので、タイプ量を減らすことができます。
+なお、ディレクトリ名やファイル名に `*` を含めると、そこにある全てのファイルにマッチするので、長い名前を省略したり、同じ名前で始まるファイルをまとめて指定することができます。また途中まで入力して `Tab` キー（Mac だと `->|` キー）を押すと、長いファイル名も自動的に補完されるので、タイプ量を減らすことができます。
 
 ## BLAST による類似配列検索
 

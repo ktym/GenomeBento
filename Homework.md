@@ -1,4 +1,4 @@
-# おまけ：生姜ゲノムの解析
+# おまけ：生姜ゲノムと野菜ジュースの解析
 
 今回のイベントに先立って、YCAM では試行実験としてスーパーで売っていた新生姜と48種の野菜が入ったジュースのシーケンシングをしていました。
 
@@ -17,7 +17,7 @@ curl 'http://togogenome.org/sparqlist/api/lineage.text?tax=94328'
 これによると生姜の階層分類は下記のようになっていました。
 
 ```
-cellular organisms (131567) / Eukaryota (2759) / Viridiplantae (33090) / Streptophyta (35493) / Streptophytina (131221) / Embryophyta (3193) / Tracheophyta (58023) / Euphyllophyta (78536) / Spermatophyta (58024) / Magnoliophyta (3398) / Mesangiospermae (1437183) / Liliopsida (4447) / Petrosaviidae (1437197) / commelinids (4734) / Zingiberales (4618) / Zingiberaceae (4642) / Zingiber (4650) / Zingiber officinale (94328)
+Eukaryota (2759) / Viridiplantae (33090) / Streptophyta (35493) / Streptophytina (131221) / Embryophyta (3193) / Tracheophyta (58023) / Euphyllophyta (78536) / Spermatophyta (58024) / Magnoliophyta (3398) / Mesangiospermae (1437183) / Liliopsida (4447) / Petrosaviidae (1437197) / commelinids (4734) / Zingiberales (4618) / Zingiberaceae (4642) / Zingiber (4650) / Zingiber officinale (94328)
 ```
 
 つづいてゲノム食材の Taxonomy ID から階層分類を軒並み調べてソートしたものが下記になります。
@@ -161,6 +161,6 @@ Eukaryota (2759) / Viridiplantae (33090) / Streptophyta (35493) / Streptophytina
 
 ## 宿題
 
-バナナゲノムのデータと生姜のシーケンスデータも `GenomeBento` フォルダに入っているのでぜひマッピングして試してみてください。
+バナナゲノムのデータと生姜のシーケンスデータを使ってマッピングを試してみてください。
 
 また、野菜ジュースからのシーケンスデータは `rbcL` にマッピングしてどの生物のものが検出できるか試してみてください。

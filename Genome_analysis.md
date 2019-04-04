@@ -2,13 +2,15 @@
 
 ゲノム DNA をシーケンスした、`1_hakusai` と `5_hiyokomame` のリードをそれぞれ白菜とヒヨコ豆のリファレンスゲノム配列にマッピングしてみます。
 
+TODO: 作成時は `1_hakusai_genome.sam` だが、続きの説明が `hakusai.sam` なのを調整
+
 ## 白菜の場合
 
-リファレンス配列は `GenomeBento/databases/genomes` フォルダに用意した `hakusai` を、マッピングするファイルは `MinION/1_hakusai` のフォルダの中の `fastq_pass` にある全ての FASTQ ファイル `*.fastq` を指定しています。
+リファレンス配列は `GenomeBento/databases/genomes` フォルダに用意した `3711-hakusai.fasta` を、マッピングするファイルは `MinION/1_hakusai` のフォルダの中の `fastq_pass` にある全ての FASTQ ファイル `*.fastq` をつなげた `samples/1_hakusai.fastq` ファイルを指定しています。
 
 ```sh
 cd ~/Desktop/GenomeBento
-minimap2 -a databases/genomes/hakusai samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
+minimap2 -a databases/genomes/3711-hakusai.fasta samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
 ```
 
 なお、`minimap2` コマンドが見つからない場合、パスが通ったところにインストールされていない可能性があります。今回は `GenomeBento` フォルダの中にも `minimap2` コマンドを入れてありますので、`./minimap2` のように書き換えると実行できるはずです。
@@ -145,7 +147,11 @@ samtools flagstat hakusai.sorted.bam
 
 67%のリードがマッピングされたということで、なかなか良かったのではないでしょうか。
 
+TODO: minimap2 でのマップ率に改訂
+
 ### bwa コマンドの使い方
+
+TODO: `bwa` から `minimap2` に変更した部分を調整
 
 `bwa` で MinION のロングリードをマッピングするには、サブコマンド `mem` を利用します。コマンドラインオプションは下記のようになります。
 

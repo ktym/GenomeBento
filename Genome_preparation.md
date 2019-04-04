@@ -4,11 +4,11 @@
 
 ![NCBI Genome - Torafugu](images/Genome-Torafugu.png)
 
-ただし、[Replicon Info の表](https://www.ncbi.nlm.nih.gov/genome/63)の RefSeq カラムに書かれている「各染色体の DNA 配列データへのリンク」をクリックしても、その先にあるトラフグの[染色体１番](https://www.ncbi.nlm.nih.gov/nuccore/NC_018890.1)の RefSeq データベースエントリ `NC_018890.1` にはデフォルトでは DNA 配列自体は表示されていません。
+ただし、[Replicon Info の表](https://www.ncbi.nlm.nih.gov/genome/63)の RefSeq カラムに書かれている「各染色体の DNA 配列データへのリンク」をクリックしても、その先にあるトラフグの[染色体１番](https://www.ncbi.nlm.nih.gov/nuccore/NC_018890.1)の RefSeq データベースエントリ `NC_018890.1` にはデフォルトでは DNA 配列自体は表示されていません。ここでさらに左上の「FASTA」と書かれたリンクをクリックすることで染色体１番の DNA 配列データをダウンロードできます。
 
 ![NCBI RefSeq - Torafugu](images/RefSeq-Torafugu.png)
 
-ここでさらに左上の「FASTA」と書かれたリンクをクリックすることで染色体１番の DNA 配列データをダウンロードできます。トラフグの全ゲノムを取得するには、この操作を全ての染色体の数ほど繰り返して一つのファイルにまとめます。この作業はちょっと面倒なので、たとえば [DBCLS](https://dbcls.rois.ac.jp/) で提供されている [TogoWS](http://togows.org/) サービスを使って工夫してみます。
+トラフグの全ゲノムを取得するには、この操作を全ての染色体の数ほど繰り返して一つのファイルにまとめます。この作業はちょっと面倒なので、たとえば [DBCLS](https://dbcls.rois.ac.jp/) で提供されている [TogoWS](http://togows.org/) サービスを使って工夫してみます。
 
 ```sh
 for id in NC_018890.1 NC_018891.1 NC_018892.1 NC_018893.1 NC_018894.1 NC_018895.1 NC_018896.1 NC_018897.1 NC_018898.1 NC_018899.1 NC_018900.1 NC_018901.1 NC_018902.1 NC_018903.1 NC_018904.1 NC_018905.1 NC_018906.1 NC_018907.1 NC_018908.1 NC_018909.1 NC_018910.1 NC_018911.1 NC_004299.1
@@ -98,7 +98,7 @@ curl http://togows.org/entry/nucleotide/NC_018911.1.fasta >> 31033.fasta
 このため、出力結果をシェルに渡すことで指定した生物の全ゲノムを一度に取得することができます。
 
 ```sh
-curl 'http://togogenome.org/sparqlist/api/tax2refseq.text?tax=31033' | sh
+curl -H 'Accept: text/plain' 'http://togogenome.org/sparqlist/api/tax2refseq?tax=31033' | sh
 ```
 
 ## 食材ゲノム FASTA ファイルの準備
