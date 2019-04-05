@@ -10,7 +10,7 @@
 
 ## ゲノム弁当解読プロジェクト
 
-[イントロダクション](slides/Introduction.pdf)
+* [イントロダクション](slides/Introduction.pdf)
 
 参考資料
 

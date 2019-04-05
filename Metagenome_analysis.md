@@ -27,24 +27,24 @@
 
 ```sh
 cd ~/Desktop/GenomeBento
-./minimap2 -a databases/rbcL/rbcL_all.fasta samples/1_hakusai.fastq       > mappings/1_hakusai_rbcL.sam
-./minimap2 -a databases/rbcL/rbcL_all.fasta samples/2_ninjin.fastq        > mappings/2_ninjin_rbcL.sam
-./minimap2 -a databases/rbcL/rbcL_all.fasta samples/3_tsukemono.fastq     > mappings/3_tsukemono_rbcL.sam
-./minimap2 -a databases/rbcL/rbcL_all.fasta samples/4_takikomigohan.fastq > mappings/4_takikomigohan_rbcL.sam
-./minimap2 -a databases/rbcL/rbcL_all.fasta samples/5_hiyokomame.fastq    > mappings/5_hiyokomame_rbcL.sam
-./minimap2 -a databases/rbcL/rbcL_all.fasta samples/6_tomato.fastq        > mappings/6_tomato_rbcL.sam
+./tools/minimap2 -a databases/rbcL/rbcL_all.fasta samples/1_hakusai.fastq       > mappings/1_hakusai_rbcL.sam
+./tools/minimap2 -a databases/rbcL/rbcL_all.fasta samples/2_ninjin.fastq        > mappings/2_ninjin_rbcL.sam
+./tools/minimap2 -a databases/rbcL/rbcL_all.fasta samples/3_tsukemono.fastq     > mappings/3_tsukemono_rbcL.sam
+./tools/minimap2 -a databases/rbcL/rbcL_all.fasta samples/4_takikomigohan.fastq > mappings/4_takikomigohan_rbcL.sam
+./tools/minimap2 -a databases/rbcL/rbcL_all.fasta samples/5_hiyokomame.fastq    > mappings/5_hiyokomame_rbcL.sam
+./tools/minimap2 -a databases/rbcL/rbcL_all.fasta samples/6_tomato.fastq        > mappings/6_tomato_rbcL.sam
 ```
 
 それではマッピング結果を見てみましょう。じつは、結果が見やすいように `rbcL_all.fasta` ファイルでは、ゲノム食材についてだけ学名の前に `YCAMGB_日本語名_` という名前をつけておきました。またそれぞれの `SAM` ファイルで、各配列がどの生物種に似ていたかを数える簡単なスクリプト `check.sh` を用意しておきました。これを使って、
 
 ```sh
-./check.sh mappings/3_tsukemono_rbcL.sam | less
+./tools/check.sh mappings/3_tsukemono_rbcL.sam | less
 ```
 
 のようにすると、似ていた配列が多い順にすべての結果が表示されます。ゲノム食材だけに絞って見たい場合は、`YCAMGB_` という名前で検索すれば良いので、`grep` コマンドを使って下記のように実行します。
 
 ```sh
-./check.sh mappings/3_tsukemono_rbcL.sam | grep YCAMGB
+./tools/check.sh mappings/3_tsukemono_rbcL.sam | grep YCAMGB
 ```
 
 ただし、日本語名と学名の対応は機械的に行いましたので、完璧ではありません。

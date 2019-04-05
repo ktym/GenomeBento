@@ -13,11 +13,11 @@ cd ~/Desktop/GenomeBento
 minimap2 -a databases/genomes/3711-hakusai.fasta samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
 ```
 
-なお、`minimap2` コマンドが見つからない場合、パスが通ったところにインストールされていない可能性があります。今回は `GenomeBento` フォルダの中にも `minimap2` コマンドを入れてありますので、`./minimap2` のように書き換えると実行できるはずです。
+なお、`minimap2` コマンドが見つからない場合、パスが通ったところにインストールされていない可能性があります。今回は `GenomeBento` フォルダの `tools` ディレクトリの中にも `minimap2` コマンドを入れてありますので、`./tools/minimap2` のように書き換えると実行できるはずです。
 
 ```sh
 cd ~/Desktop/GenomeBento
-./minimap2 databases/genomes/hakusai samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
+./tools/minimap2 databases/genomes/hakusai samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
 ```
 
 ## ヒヨコ豆の場合
