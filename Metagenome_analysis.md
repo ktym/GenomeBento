@@ -21,7 +21,7 @@
 
 このなかの `rbcL_all.fasta` ファイルを使って、`minimap2` コマンドで rbcL ライブラリに MinION で読んだリードをマッピングしてみましょう。
 
-ターミナルを起動し、`~/Desktop/GenomeBento` ディレクトリ（今回シーケンスに使った Mac の場合 `/Users/ycam/Desktop` に相当します）に移動して、`minimap2` コマンドを実行します。
+ターミナルを起動し、`~/Desktop/GenomeBento` ディレクトリ（今回シーケンスに使った Mac の場合 `/Users/ycam/Desktop/GenomeBento` に相当します）に移動して、`minimap2` コマンドを実行します。
 
 出力を `SAM` 形式にするため `-a` オプションをつけ、マッピング対象となる `FASTA` ファイルとマッピングする `FASTQ` ファイルを順番に指定します。結果は `mappings` フォルダの中に保存することにしました。
 
@@ -41,7 +41,7 @@ cd ~/Desktop/GenomeBento
 ./tools/check.sh mappings/3_tsukemono_rbcL.sam | less
 ```
 
-のようにすると、似ていた配列が多い順にすべての結果が表示されます。ゲノム食材だけに絞って見たい場合は、`YCAMGB_` という名前で検索すれば良いので、`grep` コマンドを使って下記のように実行します。
+のようにすると、似ていた配列が多い順にすべての結果が表示されます。ゲノム食材だけに絞って見たい場合は、`YCAMGB_` という名前で始まっている行だけ検索すれば良いので、`grep` コマンドを使って下記のように実行します。
 
 ```sh
 ./tools/check.sh mappings/3_tsukemono_rbcL.sam | grep YCAMGB

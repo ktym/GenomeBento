@@ -1,10 +1,10 @@
 # ゲノムのマッピング
 
-ゲノム DNA をシーケンスした、`1_hakusai` と `5_hiyokomame` のリードをそれぞれ白菜とヒヨコ豆のリファレンスゲノム配列にマッピングしてみます。
+ゲノム DNA をシーケンスした、`1_hakusai` と `5_hiyokomame` のリードをそれぞれハクサイとヒヨコ豆のリファレンスゲノム配列にマッピングしてみます。
 
 TODO: 作成時は `1_hakusai_genome.sam` だが、続きの説明が `hakusai.sam` なのを調整
 
-## 白菜の場合
+## ハクサイの場合
 
 リファレンス配列は `GenomeBento/databases/genomes` フォルダに用意した `3711-hakusai.fasta` を、マッピングするファイルは `MinION/1_hakusai` のフォルダの中の `fastq_pass` にある全ての FASTQ ファイル `*.fastq` をつなげた `samples/1_hakusai.fastq` ファイルを指定しています。
 
@@ -17,19 +17,29 @@ minimap2 -a databases/genomes/3711-hakusai.fasta samples/1_hakusai.fastq > mappi
 
 ```sh
 cd ~/Desktop/GenomeBento
-./tools/minimap2 databases/genomes/hakusai samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
+./tools/minimap2 -a databases/genomes/3711-hakusai.fasta samples/1_hakusai.fastq > mappings/1_hakusai_genome.sam
 ```
 
 ## ヒヨコ豆の場合
 
-ヒヨコ豆のデータを使う場合は、白菜の例からデータベース名を `chickpea` に変更し、FASTQ ファイルは `samples/5_hiyokomame.fastq` を使います。
+ヒヨコ豆のデータを使う場合は、ハクサイの例からデータベース名を `3827-chickpea.fasta` に変更し、FASTQ ファイルは `samples/5_hiyokomame.fastq` を使います。
 
 ```sh
 cd ~/Desktop/GenomeBento
-minimap2 -a databases/genomes/chickpea samples/5_hiyokomame.fastq > mapping/5_chickpea_genome.sam
+minimap2 -a databases/genomes/3827-chickpea.fasta samples/5_hiyokomame.fastq > mapping/5_chickpea_genome.sam
 ```
 
 ヒヨコ豆の場合、以下の説明では `hakusai` を `chickpea` に読み替えてください。
+
+## ニンジンとトマトの場合
+
+今回ニンジンとトマトはゲノムではなく rbcL 領域を PCR で増幅した試料を使っていますが、これらも一応ゲノムを用意してありますので、ついでにマッピングしてみます。
+
+```sh
+cd ~/Desktop/GenomeBento
+minimap2 -a databases/genomes/79200-carrot.fasta samples/2_ninjin.fastq > mapping/2_ninjin_genome.sam
+minimap2 -a databases/genomes/4081-tomato.fasta samples/6_tomato.fastq > mapping/6_tomato_genome.sam
+```
 
 ## IGVを使ってマッピング結果を見てみる
 
@@ -49,11 +59,11 @@ minimap2 -a databases/genomes/chickpea samples/5_hiyokomame.fastq > mapping/5_ch
 
 ![IGV](images/IGV-load-genome.png)
 
-白菜だったら `3711-hakusai.genome` など、各グループで読んだ対象の食材の `.genome` ファイルを選択して Open をクリックします。
+ハクサイだったら `3711-hakusai.genome` など、各グループで読んだ対象の食材の `.genome` ファイルを選択して Open をクリックします。
 
 ![Genome file](images/IGV-load-genome-file.png)
 
-読み込めたらこのようにメニューから白菜の各染色体に相当する DNA 配列がメニューに出てきます。
+読み込めたらこのようにメニューからハクサイの各染色体に相当する DNA 配列がメニューに出てきます。
 
 ![Loaded Genome](images/IGV-genome-hakusai.png)
 
@@ -81,7 +91,7 @@ Command を `Sort` に変更して、Input File の `Browse` ボタンをクリ�
 
 #### igvtools でのインデックス作成
 
-Command を `Index` に変更して、この `hakusai.sorted.sam` ファイルに高速化のためのインデックスを作成します（`Sort` から `Index` に変更しただけだと `hakusai.sorted.sam` ではなく元の `hakusai.sam` ファイルが選ばれている可能性があるので注意）。
+Command を `Index` に変更して、この `hakusai.sorted.sam` ファイルに高速化のためのインデックスを作成します（`Sort` から `Index` に変更しただけだと `hakusai.sorted.sam` ではなく元の `hakusai.sam` ファイルが選ばれている可能性があるので注意して `sorted` ファイルの方に変更します）。
 
 ![igvtools](images/IGV-igvtools-index.png)
 
@@ -128,26 +138,24 @@ samtools index hakusai.sorted.bam
 samtools flagstat hakusai.sorted.bam
 ```
 
-今回の白菜の例では下記のような結果になりました。
+今回のハクサイの例では下記のような結果になりました。
 
 ```
-% samtools flagstat hakusai.sorted.bam
-9051 + 0 in total (QC-passed reads + QC-failed reads)
+% samtools flagstat 1_hakusai_genome.sorted.bam
+115592 + 0 in total (QC-passed reads + QC-failed reads)
 0 + 0 duplicates
-6067 + 0 mapped (67.03%:nan%)
-6067 + 0 paired in sequencing
-2999 + 0 read1
-3068 + 0 read2
-0 + 0 properly paired (0.00%:nan%)
-3844 + 0 with itself and mate mapped
-2223 + 0 singletons (36.64%:nan%)
-3422 + 0 with mate mapped to a different chr
-2349 + 0 with mate mapped to a different chr (mapQ>=5)
+105781 + 0 mapped (91.51%:nan%)
+0 + 0 paired in sequencing
+0 + 0 read1
+0 + 0 read2
+0 + 0 properly paired (nan%:nan%)
+0 + 0 with itself and mate mapped
+0 + 0 singletons (nan%:nan%)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
 ```
 
-67%のリードがマッピングされたということで、なかなか良かったのではないでしょうか。
-
-TODO: minimap2 でのマップ率に改訂
+91%のリードがマッピングされたということで、なかなか良かったのではないでしょうか。
 
 ### bwa コマンドの使い方
 
