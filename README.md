@@ -19,7 +19,7 @@
 
 ## MinION で読んだ DNA 配列を見てみよう
 
-![解析フロー図](images/AnalysisOverview２.png)
+![解析フロー図](images/AnalysisOverview.png)
 
 * [MinION で得られた DNA 配列の確認](Sequence_data.md)
 * [リファレンス配列の準備](Genome_preparation.md)
