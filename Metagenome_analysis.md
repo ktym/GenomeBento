@@ -6,7 +6,7 @@
 
 今回 PCR で増幅した [rbcL 遺伝子領域の DNA 配列を GenBank などの網羅的な塩基配列データベースから検索](https://www.ncbi.nlm.nih.gov/nuccore/?term=rbcL) して取り出すことも可能ですが、キーワードでの検索だと一部分だけの DNA 配列や、データが間違っているもの、たまたま同じ名前が含まれているものなど、ゴミが混じってくることが考えられます。
 
-そこで、今回は下記の論文より、8万7千種の植物から集められた rbcL 遺伝子の配列データセットを利用することにします。
+そこで、今回は下記の論文より、[8万7千種の植物から集められた rbcL 遺伝子の配列データセット](https://doi.org/10.6084/m9.figshare.c.3466311.v1)を利用することにします。
 
 * An rbcL reference library to aid in the identification of plant species mixtures by DNA metabarcoding.
   * Bell KL, Loeffler VM, Brosi BJ.
