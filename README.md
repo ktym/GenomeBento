@@ -1,5 +1,7 @@
 # YCAM InterLab Camp vol.3
 
+[山口情報芸術センター](https://ycam.jp/) (YCAM) と、[ライフサイエンス統合データベースセンター](http://dbcls.jp/) (DBCLS) では、2016年からゲノムが解読された食材だけでつくる「ゲノム弁当」のコラボレーションを続けてきました。これまでの「[ゲノム弁当の開発履歴](https://github.com/YCAMInterlab/BioTIPS/blob/master/2016/genomebento.md)」もご参照ください。
+
 ![Genome Bento](images/201306_genome_bento.png)
 
 （画像は https://togotv.dbcls.jp/togopic.2013.18.html より）
